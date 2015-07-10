@@ -57,6 +57,8 @@ is compiled to:
 }
 ```
 
+For nested rules, use the [`postcss-nested`](https://github.com/postcss/postcss-nested) plugin.
+
 ## Installation
 
 ```
