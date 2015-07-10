@@ -1,0 +1,24 @@
+root = true;
+
+[*]
+charset = utf-8
+indent_style = tab
+trim_trailing_whitespace = true
+end_of_line = lf
+insert_final_newline = true
+
+[*.{json,yml}]
+indent_style = space
+indent_size = 2
+
+[js/**/*.js]
+indent_style = space
+indent_size = 4
+
+[README.md]
+indent_style = ignore
+indent_size = ignore
+trim_trailing_whitespace = ignore
+
+[*.{DotSettings,suo}]
+insert_final_newline = ignore

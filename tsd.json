@@ -1,0 +1,36 @@
+{
+  "version": "v4",
+  "repo": "borisyankov/DefinitelyTyped",
+  "ref": "master",
+  "path": "typings",
+  "bundle": "typings/tsd.d.ts",
+  "installed": {
+    "mocha/mocha.d.ts": {
+      "commit": "625cd68fed45e3230393af71bcde1d36706f3d56"
+    },
+    "sinon-chai/sinon-chai.d.ts": {
+      "commit": "625cd68fed45e3230393af71bcde1d36706f3d56"
+    },
+    "sinon/sinon.d.ts": {
+      "commit": "625cd68fed45e3230393af71bcde1d36706f3d56"
+    },
+    "chai/chai.d.ts": {
+      "commit": "625cd68fed45e3230393af71bcde1d36706f3d56"
+    },
+    "node/node.d.ts": {
+      "commit": "625cd68fed45e3230393af71bcde1d36706f3d56"
+    },
+    "vinyl-fs/vinyl-fs.d.ts": {
+      "commit": "625cd68fed45e3230393af71bcde1d36706f3d56"
+    },
+    "serve-static/serve-static.d.ts": {
+      "commit": "625cd68fed45e3230393af71bcde1d36706f3d56"
+    },
+    "mime/mime.d.ts": {
+      "commit": "625cd68fed45e3230393af71bcde1d36706f3d56"
+    },
+    "vinyl/vinyl.d.ts": {
+      "commit": "625cd68fed45e3230393af71bcde1d36706f3d56"
+    }
+  }
+}

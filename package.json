@@ -1,0 +1,43 @@
+{
+  "name": "postcss-nested-props",
+  "version": "0.0.1",
+  "description": "PostCSS plugin to unwrap nested properties.",
+  "main": "js/plugin.js",
+  "scripts": {
+    "test": "gulp test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jedmao/postcss-nested-props.git"
+  },
+  "keywords": [
+    "postcss",
+    "postcss-plugin",
+    "nested",
+    "props",
+    "properties",
+    "css",
+    "sass"
+  ],
+  "author": "Jed Mao <jedmao@outlook.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/jedmao/postcss-nested-props/issues"
+  },
+  "homepage": "https://github.com/jedmao/postcss-nested-props#readme",
+  "dependencies": {
+    "postcss": "^4.1.16"
+  },
+  "devDependencies": {
+    "chai": "^3.0.0",
+    "del": "^1.2.0",
+    "event-stream": "^3.3.1",
+    "gulp": "^3.9.0",
+    "gulp-eslint": "^0.15.0",
+    "gulp-istanbul": "^0.10.0",
+    "gulp-mocha": "^2.1.2",
+    "gulp-tslint": "^2.0.0",
+    "gulp-typescript": "^2.7.8",
+    "through2": "^2.0.0"
+  }
+}
