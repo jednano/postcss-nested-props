@@ -12,7 +12,7 @@ describe('postcss-nested-props plugin', () => {
 		check(
 			'a{b:{c:d}}',
 			'a{b-c:d}'
-			);
+		);
 	});
 
 	it('unwraps a deeply nested property', () => {
