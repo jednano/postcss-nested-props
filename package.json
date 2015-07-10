@@ -36,6 +36,7 @@
     "gulp-eslint": "^0.15.0",
     "gulp-istanbul": "^0.10.0",
     "gulp-mocha": "^2.1.2",
+    "gulp-plumber": "^1.0.1",
     "gulp-tslint": "^2.0.0",
     "gulp-typescript": "^2.7.8",
     "through2": "^2.0.0"
