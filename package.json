@@ -26,7 +26,9 @@
   },
   "homepage": "https://github.com/jedmao/postcss-nested-props#readme",
   "dependencies": {
-    "postcss": "^4.1.16"
+    "postcss": "^4.1.16",
+    "pseudo-classes": "0.0.1",
+    "pseudo-elements": "0.0.1"
   },
   "devDependencies": {
     "chai": "^3.0.0",

@@ -8,14 +8,23 @@ describe('postcss-nested-props plugin', function () {
     it('unwraps a nested property', function () {
         check('a{b:{c:d}}', 'a{b-c:d}');
     });
-    it('unwraps deeply nested properties', function () {
+    it('unwraps a deeply nested property', function () {
         check('a{b:{c:{d:{e:{f:g}}}}}', 'a{b-c-d-e-f:g}');
     });
     it('unwraps two nested properties in the same rule', function () {
         check('a{b:{c:{d:e}}f:{g:{h:i}}}', 'a{b-c-d:e;f-g-h:i}');
     });
-    it.skip('allows a property namespace itself to have a value', function () {
+    it('unwraps a property namespace paired with a value', function () {
         check('a{b:c{d:e}}', 'a{b:c;b-d:e}');
+    });
+    it('preserves nested rules w/o a colon in the selector', function () {
+        check('a{b{c{d:e}}}', 'a{b{c{d:e}}}');
+    });
+    it('preserves the :not() pseudo-class', function () {
+        check('a{b:not(c){d:e}}', 'a{b:not(c){d:e}}');
+    });
+    it('preserves the ::after pseudo-element', function () {
+        check('a{b:after{c:d}}', 'a{b:after{c:d}}');
     });
 });
 function check(input, output) {

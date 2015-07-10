@@ -68,11 +68,7 @@ $ npm install postcss-nested-props
 ### JavaScript
 
 ```js
-postcss([
-	require('postcss-nested-props')({
-		/* options */
-	})
-]);
+postcss([ require('postcss-nested-props') ]);
 ```
 
 ### TypeScript
@@ -81,11 +77,7 @@ postcss([
 ///<reference path="node_modules/postcss-nested-props/.d.ts" />
 import postcssNestedProps = require('postcss-nested-props');
 
-postcss([
-	postcssNestedProps({
-		/* options */
-	})
-]);
+postcss([ postcssNestedProps ]);
 ```
 
 ### Options
