@@ -14,7 +14,7 @@ var PostCssNestedProps = postcss.plugin(
 			});
 		};
 	}
-	);
+);
 
 var HAS_COLON = /:/;
 var ALL_PSEUDO = pseudoClasses().concat(pseudoElements());
@@ -47,8 +47,8 @@ function unwrapRule(namespace: string[], rule: any) {
 				break;
 		}
 	});
-	rule.each(node => {
-		node.moveBefore(rule);
+	rule.eachDecl(decl => {
+		decl.moveBefore(rule);
 	});
 	rule.removeSelf();
 	namespace.pop();

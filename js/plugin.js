@@ -41,8 +41,8 @@ function unwrapRule(namespace, rule) {
                 break;
         }
     });
-    rule.each(function (node) {
-        node.moveBefore(rule);
+    rule.eachDecl(function (decl) {
+        decl.moveBefore(rule);
     });
     rule.removeSelf();
     namespace.pop();

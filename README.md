@@ -1,7 +1,7 @@
 # postcss-nested-props
 
 <img align="right" width="135" height="95"
-     title="Philosopherís stone, logo of PostCSS"
+     title="Philosopher‚Äôs stone, logo of PostCSS"
      src="http://postcss.github.io/postcss/logo-leftp.png">
 
 [![Build Status](https://travis-ci.org/jedmao/postcss-nested-props.svg?branch=master)](https://travis-ci.org/jedmao/postcss-nested-props)
@@ -16,7 +16,7 @@
 
 ## Nested Properties
 
-CSS has quite a few properties that are in ìnamespaces;î for instance, `font-family`, `font-size`, and `font-weight` are all in the `font` namespace. In CSS, if you want to set a bunch of properties in the same namespace, you have to type it out each time. This plugin provides a shortcut: just write the namespace once, then nest each of the sub-properties within it. For example:
+CSS has quite a few properties that are in ‚Äúnamespaces;‚Äù for instance, `font-family`, `font-size`, and `font-weight` are all in the `font` namespace. In CSS, if you want to set a bunch of properties in the same namespace, you have to type it out each time. This plugin provides a shortcut: just write the namespace once, then nest each of the sub-properties within it. For example:
 
 ```scss
 .funky {
@@ -57,7 +57,7 @@ is compiled to:
 }
 ```
 
-For nested rules, use the [`postcss-nested`](https://github.com/postcss/postcss-nested) plugin.
+For nested rules, use the [`postcss-nested`](https://github.com/postcss/postcss-nested) plugin, but make sure to run it **AFTER** this one.
 
 ## Installation
 

@@ -1,6 +1,6 @@
 {
   "name": "postcss-nested-props",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "PostCSS plugin to unwrap nested properties.",
   "main": "js/plugin.js",
   "scripts": {
