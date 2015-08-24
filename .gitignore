@@ -1,3 +1,7 @@
 *.log
-coverage
-node_modules
+.vs/
+build/**/*.js
+build/**/*.ts
+coverage/
+dist/
+node_modules/

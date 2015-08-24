@@ -1,6 +1,9 @@
-'use strict';
-var del = require('del');
+import del from 'del';
 
-module.exports = function(done) {
-	del(['js', 'd.ts'], done);
-};
+export default done => {
+	del([
+		'build/**/*.js',
+		'build/**/*.d.ts',
+		'dist'
+	], done);
+}

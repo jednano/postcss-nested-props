@@ -1,10 +1,12 @@
-'use strict';
-var gulp = require('gulp');
-var eslint = require('gulp-eslint');
-var plumber = require('gulp-plumber');
+import gulp from 'gulp';
+import plumber from 'gulp-plumber';
+import eslint from 'gulp-eslint';
 
-module.exports = function() {
-	return gulp.src(['*.js', '.tasks/*.js'])
+export default () => {
+	return gulp.src([
+		'gulpfile.babel.js',
+		'build/**/*.js'
+	])
 		.pipe(plumber())
 		.pipe(eslint())
 		.pipe(eslint.format())

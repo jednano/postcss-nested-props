@@ -4,11 +4,10 @@
      title="Philosopher’s stone, logo of PostCSS"
      src="http://postcss.github.io/postcss/logo-leftp.png">
 
-[![Build Status](https://travis-ci.org/jedmao/postcss-nested-props.svg?branch=master)](https://travis-ci.org/jedmao/postcss-nested-props)
-[![npm version](https://badge.fury.io/js/postcss-nested-props.svg)](http://badge.fury.io/js/postcss-nested-props)
-[![Code Climate](https://codeclimate.com/github/jedmao/postcss-nested-props/badges/gpa.svg)](https://codeclimate.com/github/jedmao/postcss-nested-props)
-[![Test Coverage](https://codeclimate.com/github/jedmao/postcss-nested-props/badges/coverage.svg)](https://codeclimate.com/github/jedmao/postcss-nested-props)
+[![NPM version](http://img.shields.io/npm/v/postcss-nested-props.svg?style=flat)](https://www.npmjs.org/package/postcss-nested-props)
 [![npm license](http://img.shields.io/npm/l/postcss-nested-props.svg?style=flat-square)](https://www.npmjs.org/package/postcss-nested-props)
+[![Travis Build Status](https://img.shields.io/travis/jedmao/postcss-nested-props.svg?label=unix)](https://travis-ci.org/jedmao/postcss-nested-props)
+[![AppVeyor Build Status](https://img.shields.io/appveyor/ci/jedmao/postcss-nested-props.svg?label=windows)](https://ci.appveyor.com/project/jedmao/postcss-nested-props)
 
 [![npm](https://nodei.co/npm/postcss-nested-props.svg?downloads=true)](https://nodei.co/npm/postcss-nested-props/)
 
@@ -77,7 +76,7 @@ postcss([ require('postcss-nested-props') ]);
 
 ```ts
 ///<reference path="node_modules/postcss-nested-props/.d.ts" />
-import postcssNestedProps = require('postcss-nested-props');
+import postcssNestedProps from 'postcss-nested-props';
 
 postcss([ postcssNestedProps ]);
 ```

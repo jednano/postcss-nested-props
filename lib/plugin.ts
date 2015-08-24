@@ -1,34 +1,32 @@
 ﻿///<reference path="../typings/node/node.d.ts" />
-var postcss = require('postcss');
-var pseudoClasses = require('pseudo-classes');
-var pseudoElements = require('pseudo-elements');
+///<reference path="../node_modules/postcss/postcss.d.ts" />
+import postcss from 'postcss';
+const pseudoClasses = require('pseudo-classes');
+const pseudoElements = require('pseudo-elements');
 
 // ReSharper disable once UnusedLocals
 // ReSharper disable once InconsistentNaming
-var PostCssNestedProps = postcss.plugin(
-	'postcss-nested-props',
-	() => {
-		return node => {
-			node.eachRule(rule => {
-				unwrapRule([], rule);
-			});
-		};
-	}
-);
+export default postcss.plugin('postcss-nested-props', () => {
+	return root => {
+		root.walkRules(rule => {
+			unwrapRule([], rule);
+		});
+	};
+});
 
-var HAS_COLON = /:/;
-var ALL_PSEUDO = pseudoClasses().concat(pseudoElements());
-var HAS_PSEUDO_CLASSES_ELEMENTS = new RegExp(`:(${ALL_PSEUDO.join('|')})`);
+const HAS_COLON = /:/;
+const ALL_PSEUDO = pseudoClasses().concat(pseudoElements());
+const HAS_PSEUDO_CLASSES_ELEMENTS = new RegExp(`:(${ALL_PSEUDO.join('|')})`);
 
-function unwrapRule(namespace: string[], rule: any) {
+function unwrapRule(namespace: string[], rule: postcss.Rule) {
 	if (!HAS_COLON.test(rule.selector)) {
 		return;
 	}
 	if (HAS_PSEUDO_CLASSES_ELEMENTS.test(rule.selector)) {
 		return;
 	}
-	var parts = rule.selector.split(/:+/);
-	var decl: any = postcss.decl({
+	const parts = rule.selector.split(/:+/);
+	const decl = postcss.decl({
 		prop: parts[0],
 		value: parts[1]
 	});
@@ -36,22 +34,21 @@ function unwrapRule(namespace: string[], rule: any) {
 		rule.parent.insertBefore(rule, decl);
 	}
 	namespace.push(decl.prop);
-	var dashedNamespace = namespace.join('-');
+	const dashedNamespace = namespace.join('-');
 	rule.each(node => {
 		switch (node.type) {
 			case 'rule':
-				unwrapRule(namespace, node);
+				unwrapRule(namespace, <postcss.Rule>node);
 				break;
 			case 'decl':
-				node.prop = `${dashedNamespace}-${node.prop}`;
+				const decl2 = <postcss.Declaration>node;
+				decl2.prop = `${dashedNamespace}-${decl2.prop}`;
 				break;
 		}
 	});
-	rule.eachDecl(decl => {
-		decl.moveBefore(rule);
+	rule.walkDecls(decl2 => {
+		decl2.moveBefore(rule);
 	});
-	rule.removeSelf();
+	rule.remove();
 	namespace.pop();
 }
-
-export = PostCssNestedProps;

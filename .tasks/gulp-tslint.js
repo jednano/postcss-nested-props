@@ -1,10 +1,12 @@
-'use strict';
-var gulp = require('gulp');
-var plumber = require('gulp-plumber');
-var tslint = require('gulp-tslint');
+import gulp from 'gulp';
+import plumber from 'gulp-plumber';
+import tslint from 'gulp-tslint';
 
-module.exports = function() {
-	return gulp.src(['lib/**/*.ts'])
+export default () => {
+	return gulp.src([
+			'lib/**/*.ts',
+			'test/**/*.ts'
+		])
 		.pipe(plumber())
 		.pipe(tslint())
 		.pipe(tslint.report('verbose'));

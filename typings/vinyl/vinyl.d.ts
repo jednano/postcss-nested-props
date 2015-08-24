@@ -7,7 +7,7 @@
 
 declare module 'vinyl' {
 
-	import fs = require('fs');
+	import * as fs from 'fs';
 
 	/**
 	* A virtual file format.
@@ -95,6 +95,6 @@ declare module 'vinyl' {
 		public inspect(): string;
 	}
 
-	export = File;
+	export default File;
 
 }

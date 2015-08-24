@@ -1,7 +1,11 @@
-'use strict';
-var gulp = require('gulp');
+import gulp from 'gulp';
 
-module.exports = function() {
-	gulp.watch(['*.js', '.tasks/*.js'], ['eslint']);
-	gulp.watch(['lib/**/*.ts'], ['test']);
-};
+export default () => {
+	gulp.watch(
+		[
+			'lib/**/*.ts',
+			'test/**/*.ts'
+		],
+		['eslint:no-clean']
+	);
+}

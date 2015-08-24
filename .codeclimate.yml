@@ -1,6 +1,0 @@
-languages:
-  JavaScript: true
-exclude_paths:
-- "gulpfile.js"
-- ".tasks/*.js"
-- "js/*.spec.js"

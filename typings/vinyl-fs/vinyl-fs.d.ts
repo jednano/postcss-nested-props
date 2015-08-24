@@ -13,8 +13,8 @@ declare module NodeJS {
 }
 
 declare module "vinyl-fs" {
-	import _events = require("events");
-	import File = require("vinyl");
+	import * as _events from "events";
+	import File from "vinyl";
 
 	function src(globs:string|string[], opt?:{read?:boolean;buffer?:boolean;}):NodeJS.ReadWriteStream;
 
