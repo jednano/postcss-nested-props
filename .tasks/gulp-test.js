@@ -4,7 +4,7 @@ var istanbul = require('gulp-istanbul');
 var mocha = require('gulp-mocha');
 var plumber = require('gulp-plumber');
 
-module.exports = function(done) {
+export default done => {
 	gulp.src('js/**/*.js')
 		.pipe(istanbul())
 		.pipe(istanbul.hookRequire())

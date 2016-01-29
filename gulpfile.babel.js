@@ -1,7 +1,7 @@
 import gulp from 'gulp';
 
 function loadTask(taskName) {
-	return require(`./.tasks/gulp-${taskName}`);
+	return require(`./.tasks/gulp-${taskName}`).default;
 }
 
 gulp.task('default', ['eslint']);

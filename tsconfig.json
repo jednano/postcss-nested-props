@@ -1,6 +1,6 @@
 ﻿{
 	"compilerOptions": {
-		"target": "es6",
+		"target": "es2015",
 		"declaration": true,
 		"newLine": "LF",
 		"outDir": "build",

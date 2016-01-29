@@ -1,9 +1,13 @@
-import del from 'del';
+import gulp from 'gulp';
+import clean from 'gulp-clean';
 
-export default done => {
-	del([
+export default () => {
+	return gulp.src([
 		'build/**/*.js',
 		'build/**/*.d.ts',
 		'dist'
-	], done);
-}
+	], {
+		read: false
+	})
+		.pipe(clean());
+};

@@ -1,5 +1,5 @@
 'use strict';
-var eventStream = require('event-stream');
+var merge = require('merge2');
 var gulp = require('gulp');
 var os = require('os');
 var through = require('through2');
@@ -26,7 +26,7 @@ function istanbulIgnoreTypeScriptExtend() {
 	});
 }
 
-module.exports = function() {
+export default () => {
 	var result = gulp.src([
 			'typings/**/*.d.ts',
 			'lib/**/*.ts'
@@ -35,10 +35,10 @@ module.exports = function() {
 		})
 		.pipe(ts(project));
 
-	return eventStream.merge(
+	return merge([
 		result.dts.pipe(gulp.dest('d.ts')),
 		result.js
 			.pipe(istanbulIgnoreTypeScriptExtend())
 			.pipe(gulp.dest('js'))
-	);
+	]);
 };

@@ -8,4 +8,4 @@ export default () => {
 		],
 		['eslint:no-clean']
 	);
-}
+};
