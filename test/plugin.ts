@@ -43,21 +43,25 @@ describe('postcss-nested-props plugin', () => {
 		);
 	});
 
-	pseudoClasses().forEach(pseudoClass => {
-		it(`preserves the :${pseudoClass}() pseudo-class`, () => {
-			check(
-				`a{b:${pseudoClass}(c){d:e}}`,
-				`a{b:${pseudoClass}(c){d:e}}`
-			);
+	describe('pseudo classes', () => {
+		pseudoClasses().forEach(pseudoClass => {
+			it(`preserves the :${pseudoClass}() pseudo-class`, () => {
+				check(
+					`a{b:${pseudoClass}(c){d:e}}`,
+					`a{b:${pseudoClass}(c){d:e}}`
+				);
+			});
 		});
 	});
 
-	pseudoElements().forEach(pseudoElement => {
-		it(`preserves the ::${pseudoElement} pseudo-element`, () => {
-			check(
-				`a{b::${pseudoElement}{c:d}}`,
-				`a{b::${pseudoElement}{c:d}}`
-			);
+	describe('pseudo elements', () => {
+		pseudoElements().forEach(pseudoElement => {
+			it(`preserves the ::${pseudoElement} pseudo-element`, () => {
+				check(
+					`a{b::${pseudoElement}{c:d}}`,
+					`a{b::${pseudoElement}{c:d}}`
+				);
+			});
 		});
 	});
 
