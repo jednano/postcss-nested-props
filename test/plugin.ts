@@ -65,6 +65,21 @@ describe('postcss-nested-props plugin', () => {
 		});
 	});
 
+	describe('vendor pseudo elements', () => {
+		[
+			'-ms-clear',
+			'-webkit-progress-bar',
+			'-moz-focus-outer'
+		].forEach(vendorPseudoElement => {
+			it(`preserves the ::${vendorPseudoElement} pseudo-element`, () => {
+				check(
+					`a{b::${vendorPseudoElement}{c:d}}`,
+					`a{b::${vendorPseudoElement}{c:d}}`
+				);
+			});
+		});
+	});
+
 });
 
 function check(input: string, output: string) {
