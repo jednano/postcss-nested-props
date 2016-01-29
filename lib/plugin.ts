@@ -16,7 +16,8 @@ export default postcss.plugin('postcss-nested-props', () => {
 
 const HAS_COLON = /:/;
 const ALL_PSEUDO = pseudoClasses().concat(pseudoElements());
-const HAS_PSEUDO_CLASSES_ELEMENTS = new RegExp(`:(${ALL_PSEUDO.join('|')})`);
+const VENDOR_PSEUDO_ELEMENTS = '-(\\w|-)+';
+const HAS_PSEUDO_CLASSES_ELEMENTS = new RegExp(`:(${ALL_PSEUDO.join('|')}|${VENDOR_PSEUDO_ELEMENTS})`);
 
 function unwrapRule(namespace: string[], rule: postcss.Rule) {
 	if (!HAS_COLON.test(rule.selector)) {
