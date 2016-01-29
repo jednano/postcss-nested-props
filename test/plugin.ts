@@ -48,10 +48,17 @@ describe('postcss-nested-props plugin', () => {
 		);
 	});
 
-	it('preserves the ::after pseudo-element', () => {
+	it('preserves the :after pseudo-element', () => {
 		check(
 			'a{b:after{c:d}}',
 			'a{b:after{c:d}}'
+		);
+	});
+
+	it('preserves the ::after pseudo-element', () => {
+		check(
+			'a{b::after{c:d}}',
+			'a{b::after{c:d}}'
 		);
 	});
 
