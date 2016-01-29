@@ -2,6 +2,8 @@
 import { expect } from 'chai';
 import plugin from '../lib/plugin';
 import postcss from 'postcss';
+const pseudoClasses = require('pseudo-classes');
+const pseudoElements = require('pseudo-elements');
 
 // ReSharper disable WrongExpressionStatement
 describe('postcss-nested-props plugin', () => {
@@ -41,25 +43,22 @@ describe('postcss-nested-props plugin', () => {
 		);
 	});
 
-	it('preserves the :not() pseudo-class', () => {
-		check(
-			'a{b:not(c){d:e}}',
-			'a{b:not(c){d:e}}'
-		);
+	pseudoClasses().forEach(pseudoClass => {
+		it(`preserves the :${pseudoClass}() pseudo-class`, () => {
+			check(
+				`a{b:${pseudoClass}(c){d:e}}`,
+				`a{b:${pseudoClass}(c){d:e}}`
+			);
+		});
 	});
 
-	it('preserves the :after pseudo-element', () => {
-		check(
-			'a{b:after{c:d}}',
-			'a{b:after{c:d}}'
-		);
-	});
-
-	it('preserves the ::after pseudo-element', () => {
-		check(
-			'a{b::after{c:d}}',
-			'a{b::after{c:d}}'
-		);
+	pseudoElements().forEach(pseudoElement => {
+		it(`preserves the ::${pseudoElement} pseudo-element`, () => {
+			check(
+				`a{b::${pseudoElement}{c:d}}`,
+				`a{b::${pseudoElement}{c:d}}`
+			);
+		});
 	});
 
 });
