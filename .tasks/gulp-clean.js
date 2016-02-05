@@ -1,5 +1,5 @@
 import gulp from 'gulp';
-import clean from 'gulp-clean';
+import rimraf from 'gulp-rimraf';
 
 export default () => {
 	return gulp.src([
@@ -9,5 +9,5 @@ export default () => {
 	], {
 		read: false
 	})
-		.pipe(clean());
+		.pipe(rimraf());
 };
