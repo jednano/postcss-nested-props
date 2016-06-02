@@ -5,11 +5,10 @@
   "main": "dist/lib/plugin.js",
   "types": "dist/lib/plugin.d.ts",
   "scripts": {
-    "prepublish": "gulp && gulp copy && npm run babelify",
-    "babelify": "babel build/lib --out-dir dist/lib",
-    "test": "gulp && npm run cover && npm run check-coverage",
-    "cover": "isparta cover node_modules/mocha/bin/_mocha -i build/lib/plugin.js",
-    "check-coverage": "istanbul check-coverage",
+    "prepublish": "gulp && npm run tsc && gulp copy",
+    "tsc": "tsc",
+    "test": "gulp && npm run tsc && npm run mocha",
+    "mocha": "mocha",
     "watch": "sh scripts/watch"
   },
   "repository": {

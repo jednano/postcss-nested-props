@@ -1,8 +1,8 @@
-﻿import postcss from 'postcss';
+﻿import * as postcss from 'postcss';
 const pseudoClasses = require('pseudo-classes');
 const pseudoElements = require('pseudo-elements');
 
-export default postcss.plugin('postcss-nested-props', () => {
+const PostCssNestedProps = postcss.plugin('postcss-nested-props', () => {
 	return root => {
 		root.walkRules(rule => {
 			unwrapRule([], rule);
@@ -49,3 +49,5 @@ function unwrapRule(namespace: string[], rule: postcss.Rule) {
 	rule.remove();
 	namespace.pop();
 }
+
+export = PostCssNestedProps;

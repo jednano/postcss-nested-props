@@ -1,6 +1,6 @@
 ﻿import { expect } from 'chai';
-import plugin from '../lib/plugin';
-import postcss from 'postcss';
+import * as plugin from '../lib/plugin';
+import * as postcss from 'postcss';
 const pseudoClasses = require('pseudo-classes');
 const pseudoElements = require('pseudo-elements');
 

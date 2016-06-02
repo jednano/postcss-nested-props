@@ -1,5 +1,6 @@
-import gulp from 'gulp';
-import rimraf from 'gulp-rimraf';
+/// <reference path="../typings/gulp.d.ts" />
+import * as gulp from 'gulp';
+var rimraf = require('gulp-rimraf');
 
 export default () => {
 	return gulp.src([

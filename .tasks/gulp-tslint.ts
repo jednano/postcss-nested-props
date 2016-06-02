@@ -1,6 +1,7 @@
-import gulp from 'gulp';
-import plumber from 'gulp-plumber';
-import tslint from 'gulp-tslint';
+/// <reference path="../typings/gulp.d.ts" />
+import * as gulp from 'gulp';
+var plumber = require('gulp-plumber');
+var tslint = require('gulp-tslint');
 
 export default () => {
 	return gulp.src([
