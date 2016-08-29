@@ -10,6 +10,7 @@ const PostCssNestedProps = postcss.plugin('postcss-nested-props', () => {
 	};
 });
 
+const STARTS_WITH_COLON = /^:/;
 const HAS_COLON = /:/;
 const ALL_PSEUDO = pseudoClasses().concat(pseudoElements());
 const VENDOR_PSEUDO_ELEMENTS = '-(\\w|-)+';
@@ -18,6 +19,9 @@ const HAS_PSEUDO_CLASSES_ELEMENTS = new RegExp(
 );
 
 function unwrapRule(namespace: string[], rule: postcss.Rule) {
+	if (STARTS_WITH_COLON.test(rule.selector)) {
+		return;
+	}
 	if (!HAS_COLON.test(rule.selector)) {
 		return;
 	}

@@ -41,6 +41,20 @@ describe('postcss-nested-props plugin', () => {
 		);
 	});
 
+	it('preserves a rule with a :global pseudo-selector', () => {
+		check(
+			`:global .a{b:c;d:e;}`,
+			`:global .a{b:c;d:e;}`
+		);
+	});
+
+	it('preserves a rule with a :local pseudo-selector', () => {
+		check(
+			`:local .a{b:c;d:e;}`,
+			`:local .a{b:c;d:e;}`
+		);
+	});
+
 	describe('pseudo classes', () => {
 		pseudoClasses().forEach((pseudoClass: string) => {
 			it(`preserves the :${pseudoClass}() pseudo-class`, () => {
