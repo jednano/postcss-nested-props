@@ -1,5 +1,12 @@
+<<<<<<< HEAD
 --colors
 --inline-diffs
 --reporter spec
 --compilers ts:ts-node/register
+=======
+--colors
+--inline-diffs
+--reporter spec
+--compilers ts:ts-node/register
+>>>>>>> Update TypeScript@^2.1.0-dev.20160829
 build/test/plugin.js

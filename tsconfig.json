@@ -2,12 +2,16 @@
 	"compilerOptions": {
 		"module": "commonjs",
 		"moduleResolution": "node",
+		"noImplicitAny": true,
 		"target": "es5",
 		"declaration": true,
 		"newLine": "LF",
 		"outDir": "build",
 		"rootDir": "."
 	},
+	"exclude": [
+		"node_modules"
+	],
 	"files": [
 		"node_modules/postcss/lib/postcss.d.ts",
 		"lib/plugin.ts",

@@ -1,4 +1,3 @@
-/// <reference path="../typings/gulp.d.ts" />
 import * as gulp from 'gulp';
 var plumber = require('gulp-plumber');
 var tslint = require('gulp-tslint');

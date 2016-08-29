@@ -42,7 +42,7 @@ describe('postcss-nested-props plugin', () => {
 	});
 
 	describe('pseudo classes', () => {
-		pseudoClasses().forEach(pseudoClass => {
+		pseudoClasses().forEach((pseudoClass: string) => {
 			it(`preserves the :${pseudoClass}() pseudo-class`, () => {
 				check(
 					`a{b:${pseudoClass}(c){d:e}}`,
@@ -53,7 +53,7 @@ describe('postcss-nested-props plugin', () => {
 	});
 
 	describe('pseudo elements', () => {
-		pseudoElements().forEach(pseudoElement => {
+		pseudoElements().forEach((pseudoElement: string) => {
 			it(`preserves the ::${pseudoElement} pseudo-element`, () => {
 				check(
 					`a{b::${pseudoElement}{c:d}}`,
