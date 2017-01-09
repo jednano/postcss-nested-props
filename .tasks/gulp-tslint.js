@@ -8,6 +8,8 @@ export default () => {
 			'test/**/*.ts'
 		])
 		.pipe(plumber())
-		.pipe(tslint())
-		.pipe(tslint.report('verbose'));
+		.pipe(tslint({
+			formatter: 'verbose'
+		}))
+		.pipe(tslint.report());
 };

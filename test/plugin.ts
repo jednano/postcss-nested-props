@@ -1,11 +1,9 @@
-﻿///<reference path='../typings/tsd.d.ts'/>
-import { expect } from 'chai';
+﻿import { expect } from 'chai';
 import plugin from '../lib/plugin';
 import postcss from 'postcss';
 const pseudoClasses = require('pseudo-classes');
 const pseudoElements = require('pseudo-elements');
 
-// ReSharper disable WrongExpressionStatement
 describe('postcss-nested-props plugin', () => {
 
 	it('unwraps a nested property', () => {

@@ -9,11 +9,9 @@ const project = ts.createProject('tsconfig.json', {
 });
 
 export default () => {
-	const libResult = project.src().pipe(ts(
-		project,
-		void 0,
-		ts.reporter.fullReporter()
-	));
+	const libResult = project.src().pipe(
+		project(ts.reporter.fullReporter())
+	);
 	return merge([
 		libResult.dts
 			.pipe(filter(['**', '!test/**']))

@@ -1,11 +1,7 @@
-﻿///<reference path="../typings/node/node.d.ts" />
-///<reference path="../node_modules/postcss/postcss.d.ts" />
-import postcss from 'postcss';
+﻿import postcss from 'postcss';
 const pseudoClasses = require('pseudo-classes');
 const pseudoElements = require('pseudo-elements');
 
-// ReSharper disable once UnusedLocals
-// ReSharper disable once InconsistentNaming
 export default postcss.plugin('postcss-nested-props', () => {
 	return root => {
 		root.walkRules(rule => {
