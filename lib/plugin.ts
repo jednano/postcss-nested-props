@@ -1,8 +1,8 @@
-﻿import postcss from 'postcss';
+﻿import * as postcss from 'postcss';
 const pseudoClasses = require('pseudo-classes');
 const pseudoElements = require('pseudo-elements');
 
-export default postcss.plugin('postcss-nested-props', () => {
+const PostCssNestedProps = postcss.plugin('postcss-nested-props', () => {
 	return root => {
 		root.walkRules(rule => {
 			unwrapRule([], rule);
@@ -10,12 +10,18 @@ export default postcss.plugin('postcss-nested-props', () => {
 	};
 });
 
+const STARTS_WITH_COLON = /^:/;
 const HAS_COLON = /:/;
 const ALL_PSEUDO = pseudoClasses().concat(pseudoElements());
 const VENDOR_PSEUDO_ELEMENTS = '-(\\w|-)+';
-const HAS_PSEUDO_CLASSES_ELEMENTS = new RegExp(`:(${ALL_PSEUDO.join('|')}|${VENDOR_PSEUDO_ELEMENTS})`);
+const HAS_PSEUDO_CLASSES_ELEMENTS = new RegExp(
+	`:(${ALL_PSEUDO.join('|')}|${VENDOR_PSEUDO_ELEMENTS})`
+);
 
 function unwrapRule(namespace: string[], rule: postcss.Rule) {
+	if (STARTS_WITH_COLON.test(rule.selector)) {
+		return;
+	}
 	if (!HAS_COLON.test(rule.selector)) {
 		return;
 	}
@@ -49,3 +55,5 @@ function unwrapRule(namespace: string[], rule: postcss.Rule) {
 	rule.remove();
 	namespace.pop();
 }
+
+export = PostCssNestedProps;

@@ -1,6 +1,6 @@
 ﻿import { expect } from 'chai';
-import plugin from '../lib/plugin';
-import postcss from 'postcss';
+import * as plugin from '../lib/plugin';
+import * as postcss from 'postcss';
 const pseudoClasses = require('pseudo-classes');
 const pseudoElements = require('pseudo-elements');
 
@@ -41,8 +41,22 @@ describe('postcss-nested-props plugin', () => {
 		);
 	});
 
+	it('preserves a rule with a :global pseudo-selector', () => {
+		check(
+			`:global .a{b:c;d:e;}`,
+			`:global .a{b:c;d:e;}`
+		);
+	});
+
+	it('preserves a rule with a :local pseudo-selector', () => {
+		check(
+			`:local .a{b:c;d:e;}`,
+			`:local .a{b:c;d:e;}`
+		);
+	});
+
 	describe('pseudo classes', () => {
-		pseudoClasses().forEach(pseudoClass => {
+		pseudoClasses().forEach((pseudoClass: string) => {
 			it(`preserves the :${pseudoClass}() pseudo-class`, () => {
 				check(
 					`a{b:${pseudoClass}(c){d:e}}`,
@@ -53,7 +67,7 @@ describe('postcss-nested-props plugin', () => {
 	});
 
 	describe('pseudo elements', () => {
-		pseudoElements().forEach(pseudoElement => {
+		pseudoElements().forEach((pseudoElement: string) => {
 			it(`preserves the ::${pseudoElement} pseudo-element`, () => {
 				check(
 					`a{b::${pseudoElement}{c:d}}`,
