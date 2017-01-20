@@ -1,3 +1,6 @@
+## 1.1.5
+- Fix build, PostCSS dependency.
+
 ## 1.1.2
 - Supports PostCSS 5.2.9.
 
