@@ -1,100 +1,73 @@
-﻿import { expect } from 'chai';
-import * as plugin from '../lib/plugin';
+﻿import test, { ContextualTestContext } from 'ava';
 import * as postcss from 'postcss';
 const pseudoClasses = require('pseudo-classes');
 const pseudoElements = require('pseudo-elements');
 
-describe('postcss-nested-props plugin', () => {
+import * as plugin from '../lib/plugin';
 
-	it('unwraps a nested property', () => {
-		check(
-			'a{b:{c:d}}',
-			'a{b-c:d}'
-		);
-	});
+test('unwraps a nested property', scenario(
+	'a{b:{c:d}}',
+	'a{b-c:d}'
+));
 
-	it('unwraps a deeply nested property', () => {
-		check(
-			'a{b:{c:{d:{e:{f:g}}}}}',
-			'a{b-c-d-e-f:g}'
-		);
-	});
+test('unwraps a deeply nested property', scenario(
+	'a{b:{c:{d:{e:{f:g}}}}}',
+	'a{b-c-d-e-f:g}'
+));
 
-	it('unwraps two nested properties in the same rule', () => {
-		check(
-			'a{b:{c:{d:e}}f:{g:{h:i}}}',
-			'a{b-c-d:e;f-g-h:i}'
-		);
-	});
+test('unwraps two nested properties in the same rule', scenario(
+	'a{b:{c:{d:e}}f:{g:{h:i}}}',
+	'a{b-c-d:e;f-g-h:i}'
+));
 
-	it('unwraps a property namespace paired with a value', () => {
-		check(
-			'a{b:c{d:e}}',
-			'a{b:c;b-d:e}'
-		);
-	});
+test('unwraps a property namespace paired with a value', scenario(
+	'a{b:c{d:e}}',
+	'a{b:c;b-d:e}'
+));
 
-	it('preserves nested rules w/o a colon in the selector', () => {
-		check(
-			'a{b{c{d:e}}}',
-			'a{b{c{d:e}}}'
-		);
-	});
+test('preserves nested rules w/o a colon in the selector', scenario(
+	'a{b{c{d:e}}}',
+	'a{b{c{d:e}}}'
+));
 
-	it('preserves a rule with a :global pseudo-selector', () => {
-		check(
-			`:global .a{b:c;d:e;}`,
-			`:global .a{b:c;d:e;}`
-		);
-	});
+test('preserves a rule with a :global pseudo-selector', scenario(
+	`:global .a{b:c;d:e;}`,
+	`:global .a{b:c;d:e;}`
+));
 
-	it('preserves a rule with a :local pseudo-selector', () => {
-		check(
-			`:local .a{b:c;d:e;}`,
-			`:local .a{b:c;d:e;}`
-		);
-	});
+test('preserves a rule with a :local pseudo-selector', scenario(
+	`:local .a{b:c;d:e;}`,
+	`:local .a{b:c;d:e;}`
+));
 
-	describe('pseudo classes', () => {
-		pseudoClasses().forEach((pseudoClass: string) => {
-			it(`preserves the :${pseudoClass}() pseudo-class`, () => {
-				check(
-					`a{b:${pseudoClass}(c){d:e}}`,
-					`a{b:${pseudoClass}(c){d:e}}`
-				);
-			});
-		});
-	});
-
-	describe('pseudo elements', () => {
-		pseudoElements().forEach((pseudoElement: string) => {
-			it(`preserves the ::${pseudoElement} pseudo-element`, () => {
-				check(
-					`a{b::${pseudoElement}{c:d}}`,
-					`a{b::${pseudoElement}{c:d}}`
-				);
-			});
-		});
-	});
-
-	describe('vendor pseudo elements', () => {
-		[
-			'-ms-clear',
-			'-webkit-progress-bar',
-			'-moz-focus-outer'
-		].forEach(vendorPseudoElement => {
-			it(`preserves the ::${vendorPseudoElement} pseudo-element`, () => {
-				check(
-					`a{b::${vendorPseudoElement}{c:d}}`,
-					`a{b::${vendorPseudoElement}{c:d}}`
-				);
-			});
-		});
-	});
-
+pseudoClasses().forEach((pseudoClass: string) => {
+	test(`preserves the :${pseudoClass}() pseudo-class`, scenario(
+		`a{b:${pseudoClass}(c){d:e}}`,
+		`a{b:${pseudoClass}(c){d:e}}`
+	));
 });
 
-function check(input: string, output: string) {
+pseudoElements().forEach((pseudoElement: string) => {
+	test(`preserves the ::${pseudoElement} pseudo-element`, scenario(
+		`a{b::${pseudoElement}{c:d}}`,
+		`a{b::${pseudoElement}{c:d}}`
+	));
+});
+
+[
+	'-ms-clear',
+	'-webkit-progress-bar',
+	'-moz-focus-outer'
+].forEach(vendorPseudoElement => {
+	test(`preserves the ::${vendorPseudoElement} pseudo-element`, scenario(
+		`a{b::${vendorPseudoElement}{c:d}}`,
+		`a{b::${vendorPseudoElement}{c:d}}`
+	));
+});
+
+function scenario(input: string, expectedOutput: string) {
 	const processor = postcss([plugin()]);
-	expect(processor.process(input).css).to.equal(output);
+	return (t: ContextualTestContext) => {
+		t.is(processor.process(input).css, expectedOutput);
+	};
 }

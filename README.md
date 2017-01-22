@@ -75,7 +75,6 @@ postcss([ require('postcss-nested-props') ]);
 ### TypeScript
 
 ```ts
-///<reference path="node_modules/postcss-nested-props/.d.ts" />
 import * as postcssNestedProps from 'postcss-nested-props';
 
 postcss([ postcssNestedProps ]);

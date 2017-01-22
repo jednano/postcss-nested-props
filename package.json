@@ -3,13 +3,25 @@
   "version": "1.1.5",
   "description": "PostCSS plugin to unwrap nested properties.",
   "main": "dist/lib/plugin.js",
-  "typings": "dist/lib/plugin.d.ts",
+  "types": "dist/lib/plugin.d.ts",
   "scripts": {
-    "prepublish": "gulp && npm run tsc && gulp copy",
+    "ava": "ava",
+    "build": "npm run tsc",
+    "build:watch": "npm run tsc -- --watch",
+    "lint": "npm run tslint",
+    "prepublish": "npm run lint && npm run build",
     "tsc": "tsc",
-    "test": "gulp && npm run tsc && npm run mocha",
-    "mocha": "mocha",
-    "watch": "sh scripts/watch"
+    "test": "npm run tsc && npm run ava",
+    "test:watch": "npm run ava -- --watch",
+    "tslint": "tslint --project tsconfig.json"
+  },
+  "ava": {
+    "files": [
+      "dist/test/**/*.js"
+    ],
+    "source": [
+      "dist/**/*.js"
+    ]
   },
   "repository": {
     "type": "git",
@@ -31,39 +43,14 @@
   },
   "homepage": "https://github.com/jedmao/postcss-nested-props#readme",
   "dependencies": {
-    "postcss": "^5.2.11",
+    "postcss": "^5.2.15",
     "pseudo-classes": "^1.0.0",
     "pseudo-elements": "^1.0.0"
   },
   "devDependencies": {
-    "@types/chai": "^3.4.34",
-    "@types/glob": "^5.0.30",
-    "@types/glob-stream": "^3.1.30",
-    "@types/gulp": "^3.8.32",
-    "@types/minimatch": "^2.0.29",
-    "@types/mocha": "^2.2.38",
-    "@types/node": "^7.0.0",
-    "@types/orchestrator": "0.0.30",
-    "@types/q": "0.0.32",
-    "@types/sinon": "^1.16.34",
-    "@types/sinon-chai": "^2.7.27",
-    "@types/vinyl": "^2.0.0",
-    "@types/vinyl-fs": "0.0.28",
-    "chai": "^3.5.0",
-    "gulp": "^3.9.1",
-    "gulp-filter": "^5.0.0",
-    "gulp-istanbul": "^1.1.1",
-    "gulp-mocha": "^3.0.1",
-    "gulp-plumber": "^1.1.0",
-    "gulp-rimraf": "^0.2.1",
-    "gulp-tslint": "^7.0.1",
-    "gulp-typescript": "^3.1.4",
-    "istanbul": "^0.4.5",
-    "merge2": "^1.0.3",
-    "mocha": "^3.2.0",
-    "through2": "^2.0.3",
-    "ts-node": "^2.0.0",
-    "tslint": "^4.3.1",
-    "typescript": "^2.1.5"
+    "@types/node": "^7.0.5",
+    "ava": "^0.18.2",
+    "tslint": "^4.4.2",
+    "typescript": "^2.2.1"
   }
 }
