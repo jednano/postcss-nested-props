@@ -1,4 +1,7 @@
 .*
+.nyc_output/
+.vscode/
+coverage/
 lib/
 test/
 !dist/lib
