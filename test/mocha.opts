@@ -1,5 +1,0 @@
---colors
---inline-diffs
---reporter spec
---compilers ts:ts-node/register
-build/test/plugin.js
