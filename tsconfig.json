@@ -12,7 +12,6 @@
 		]
 	},
 	"include": [
-		"node_modules/postcss/lib/postcss.d.ts",
 		"lib/**/*.ts",
 		"test/**/*.ts"
 	],
