@@ -16,7 +16,7 @@
   },
   "ava": {
     "files": [
-      "dist/test/**/*.js"
+      "dist/**/*.spec.js"
     ],
     "source": [
       "dist/**/*.js"
@@ -31,10 +31,7 @@
       "dist/**/*.js"
     ],
     "exclude": [
-      "dist/test/**/*.js"
-    ],
-    "reporter": [
-      "lcov"
+      "dist/**/*.spec.js"
     ],
     "cache": true,
     "all": true,

@@ -6,14 +6,13 @@
 		"declaration": true,
 		"newLine": "LF",
 		"outDir": "dist",
-		"rootDir": ".",
+		"rootDir": "src",
 		"lib": [
 			"es2015"
 		]
 	},
 	"include": [
-		"lib/**/*.ts",
-		"test/**/*.ts"
+		"src/**/*.ts"
 	],
 	"exclude": [
 		"node_modules"

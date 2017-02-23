@@ -2,9 +2,7 @@
 .nyc_output/
 .vscode/
 coverage/
-lib/
-test/
-!dist/lib
+src/
 appveyor.yml
 jsconfig.json
 tsconfig.json
