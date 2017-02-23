@@ -3,7 +3,7 @@ import * as postcss from 'postcss';
 const pseudoClasses = require('pseudo-classes');
 const pseudoElements = require('pseudo-elements');
 
-import * as plugin from '../lib/plugin';
+import * as plugin from './plugin';
 
 test('unwraps a nested property', scenario(
 	'a{b:{c:d}}',
