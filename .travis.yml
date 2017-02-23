@@ -4,6 +4,10 @@ node_js:
   - "node"
   - "6"
 
+after_success:
+  - npm install codecov
+  - npm run codecov:report
+
 notifications:
   email:
     on_success: change
