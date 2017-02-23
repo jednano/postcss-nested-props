@@ -6,6 +6,8 @@
   "types": "dist/lib/plugin.d.ts",
   "scripts": {
     "clean": "rimraf coverage dist *.log",
+    "codecov": "codecov -f coverage/*.json",
+    "codecov:report": "nyc report --reporter=json && npm run codecov",
     "compile": "tsc",
     "compile:watch": "tsc --watch",
     "prepublish": "npm test",
