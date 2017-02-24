@@ -2,8 +2,8 @@
   "name": "postcss-nested-props",
   "version": "1.1.6",
   "description": "PostCSS plugin to unwrap nested properties.",
-  "main": "dist/lib/plugin.js",
-  "types": "dist/lib/plugin.d.ts",
+  "main": "dist/plugin.js",
+  "types": "dist/plugin.d.ts",
   "scripts": {
     "clean": "rimraf coverage dist *.log",
     "codecov": "codecov -f coverage/lcov.info",
