@@ -1,3 +1,6 @@
+## 1.1.7
+- Fix module resolution ([#26](https://github.com/jedmao/postcss-nested-props/pull/26)).
+
 ## 1.1.6
 - Updated dependencies.
 - Restructured project.
