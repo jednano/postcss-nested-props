@@ -13,7 +13,8 @@
     "pretest": "npm run tslint && npm run clean && npm run compile",
     "test": "nyc ava",
     "test:watch": "ava --watch",
-    "tslint": "tslint --project tsconfig.json"
+    "tslint": "tslint --project tsconfig.json",
+    "foo": "foo"
   },
   "ava": {
     "files": [
