@@ -5,7 +5,6 @@
 .vscode/
 coverage/
 src/
-appveyor.yml
 circle.yml
 jsconfig.json
 tsconfig.json
