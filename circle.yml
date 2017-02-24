@@ -1,0 +1,13 @@
+machine:
+  node:
+    version: 6
+dependencies:
+  override:
+    - npm install tap-xunit
+  cache_directories:
+    - "node_modules"
+test:
+  override:
+    - npm test
+    - mkdir -p $CIRCLE_TEST_REPORTS/reports
+    - ./node_modules/.bin/ava --tap | ./node_modules/.bin/tap-xunit > $CIRCLE_TEST_REPORTS/reports/ava.xml
