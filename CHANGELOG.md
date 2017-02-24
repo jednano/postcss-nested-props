@@ -1,3 +1,8 @@
+## 1.1.6
+- Updated dependencies.
+- Restructured project.
+- Sanity release.
+
 ## 1.1.5
 - Fix build, PostCSS dependency.
 
