@@ -8,6 +8,7 @@
 [![npm license](http://img.shields.io/npm/l/postcss-nested-props.svg?style=flat-square)](https://www.npmjs.org/package/postcss-nested-props)
 [![Travis Build Status](https://img.shields.io/travis/jedmao/postcss-nested-props.svg)](https://travis-ci.org/jedmao/postcss-nested-props)
 [![codecov](https://codecov.io/gh/jedmao/postcss-nested-props/branch/master/graph/badge.svg)](https://codecov.io/gh/jedmao/postcss-nested-props)
+[![Dependency Status](https://gemnasium.com/badges/github.com/jedmao/postcss-nested-props.svg)](https://gemnasium.com/github.com/jedmao/postcss-nested-props)
 [![CircleCI](https://circleci.com/gh/jedmao/postcss-nested-props.svg?style=svg)](https://circleci.com/gh/jedmao/postcss-nested-props)
 
 [![npm](https://nodei.co/npm/postcss-nested-props.svg?downloads=true)](https://nodei.co/npm/postcss-nested-props/)
