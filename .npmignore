@@ -6,6 +6,5 @@
 coverage/
 src/
 circle.yml
-jsconfig.json
 tsconfig.json
 tslint.json
