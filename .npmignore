@@ -5,6 +5,5 @@
 .vscode/
 coverage/
 src/
-circle.yml
 tsconfig.json
 tslint.json
