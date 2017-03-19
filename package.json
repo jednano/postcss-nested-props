@@ -62,16 +62,16 @@
   },
   "homepage": "https://github.com/jedmao/postcss-nested-props#readme",
   "dependencies": {
-    "postcss": "^5.2.15",
+    "postcss": "^5.2.16",
     "pseudo-classes": "^1.0.0",
     "pseudo-elements": "^1.0.0"
   },
   "devDependencies": {
-    "@types/node": "^7.0.5",
+    "@types/node": "^7.0.8",
     "ava": "^0.18.2",
     "nyc": "^10.1.2",
-    "rimraf": "^2.6.0",
-    "tslint": "^4.4.2",
+    "rimraf": "^2.6.1",
+    "tslint": "^4.5.1",
     "typescript": "^2.2.1"
   }
 }
