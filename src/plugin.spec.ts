@@ -5,68 +5,50 @@ const pseudoElements = require('pseudo-elements');
 
 import * as plugin from './plugin';
 
-test(
-	'unwraps a nested property',
-	macro,
+test('unwraps a nested property', macro,
 	'a{b:{c:d}}',
 	'a{b-c:d}'
 );
 
-test(
-	'unwraps a deeply nested property',
-	macro,
+test('unwraps a deeply nested property', macro,
 	'a{b:{c:{d:{e:{f:g}}}}}',
 	'a{b-c-d-e-f:g}'
 );
 
-test(
-	'unwraps two nested properties in the same rule',
-	macro,
+test('unwraps two nested properties in the same rule', macro,
 	'a{b:{c:{d:e}}f:{g:{h:i}}}',
 	'a{b-c-d:e;f-g-h:i}'
 );
 
-test(
-	'unwraps a property namespace paired with a value',
-	macro,
+test('unwraps a property namespace paired with a value', macro,
 	'a{b:c{d:e}}',
 	'a{b:c;b-d:e}'
 );
 
-test(
-	'preserves nested rules w/o a colon in the selector',
-	macro,
+test('preserves nested rules w/o a colon in the selector', macro,
 	'a{b{c{d:e}}}',
 	'a{b{c{d:e}}}'
 );
 
-test(
-	'preserves a rule with a :global pseudo-selector',
-	macro,
+test('preserves a rule with a :global pseudo-selector', macro,
 	`:global .a{b:c;d:e;}`,
 	`:global .a{b:c;d:e;}`
 );
 
-test(
-	'preserves a rule with a :local pseudo-selector',
-	macro,
+test('preserves a rule with a :local pseudo-selector', macro,
 	`:local .a{b:c;d:e;}`,
 	`:local .a{b:c;d:e;}`
 );
 
 pseudoClasses().forEach((pseudoClass: string) => {
-	test(
-		`preserves the :${pseudoClass}() pseudo-class`,
-		macro,
+	test(`preserves the :${pseudoClass}() pseudo-class`, macro,
 		`a{b:${pseudoClass}(c){d:e}}`,
 		`a{b:${pseudoClass}(c){d:e}}`
 	);
 });
 
 pseudoElements().forEach((pseudoElement: string) => {
-	test(
-		`preserves the ::${pseudoElement} pseudo-element`,
-		macro,
+	test(`preserves the ::${pseudoElement} pseudo-element`, macro,
 		`a{b::${pseudoElement}{c:d}}`,
 		`a{b::${pseudoElement}{c:d}}`
 	);
@@ -77,9 +59,7 @@ pseudoElements().forEach((pseudoElement: string) => {
 	'-webkit-progress-bar',
 	'-moz-focus-outer'
 ].forEach(vendorPseudoElement => {
-	test(
-		`preserves the ::${vendorPseudoElement} pseudo-element`,
-		macro,
+	test(`preserves the ::${vendorPseudoElement} pseudo-element`, macro,
 		`a{b::${vendorPseudoElement}{c:d}}`,
 		`a{b::${vendorPseudoElement}{c:d}}`
 	);
