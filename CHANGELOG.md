@@ -1,3 +1,6 @@
+## 2.0.0
+**Breaking:** Upgrade to PostCSS 6 (no longer works with PostCSS 5).
+
 ## 1.1.7
 - Fix module resolution ([#26](https://github.com/jedmao/postcss-nested-props/pull/26)).
 

@@ -1,4 +1,4 @@
-﻿import test, { ContextualTestContext } from 'ava';
+﻿import test, { TestContext } from 'ava';
 import * as postcss from 'postcss';
 const pseudoClasses = require('pseudo-classes');
 const pseudoElements = require('pseudo-elements');
@@ -66,7 +66,7 @@ pseudoElements().forEach((pseudoElement: string) => {
 });
 
 function macro(
-	t: ContextualTestContext,
+	t: TestContext,
 	input: string,
 	expected?: string | RegExp
 ) {

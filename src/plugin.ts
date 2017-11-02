@@ -50,7 +50,7 @@ function unwrapRule(namespace: string[], rule: postcss.Rule) {
 		}
 	});
 	rule.walkDecls(decl2 => {
-		decl2.moveBefore(rule);
+		rule.before(decl2.remove());
 	});
 	rule.remove();
 	namespace.pop();
